@@ -26,9 +26,12 @@
 	* ascii (7bit) & unicode(16bit) -> internationalization
 	* standard : 
 * **Binary Numbers** ;
-	* 
-
-
-	**Next**: Error correcting codes
+	* Base sixteen/hexadecimal - octadecimal
+	* Byte : 8bits
+		* kilo : $2^{10}$   mega : $2^{20}$   giga : $2^{30}$
+		* KB : kilo-byte - Kb : Kilo-bit
+* why choose digital circuits over microprocessors?
+	* efficiency
+	* cost
 
 	
