@@ -36,15 +36,27 @@ a1a0b1b0 	c1c0
 
 You can use pqrs. Using a0a1b0b1 will be harder to read. Use p'q'r's' for prime forms.
 
+Adjacency or Uniting Theorem:         product.Y + product.Y' = product                                       (sum + Y) . (sum + Y') = sum
+	product.Y + product.Y'                                                    (sum + Y) . (sum + Y')
+	product(Y+Y')                     //Distrubiton Law                       (sum).(Y+Y')                   //Distrubiton Law
+	product*1                         //Complement Law                        (sum).(1)                      //Complement Law
+	product                           //Identity Law                           sum                           //Identity Law
+
+
 Used form: SoP
 
 Minimize c0
 c0 = p'q'rs + p'qrs' + p'qrs + pq'r's' + pq'r's +  pqr's' + pqr's   // idempotent 
 c0 = p'q'rs + p'qrs' + p'qrs + pq'r's' + pq'r's +  pqr's' + pqr's + p'qrs + pq'r's' + pqr's +  pqr's' + pq'r's   
-c0 = (p'q'rs + p'qrs) + (p'qrs' + p'qrs ) +  (pq'r's' + pq'r's ) + (pqr's' + pqr's ) + (pq'r's'+  pqr's' )  + (pq'r's + pqr's)     // absorption
+c0 = (p'q'rs + p'qrs) + (p'qrs' + p'qrs ) +  (pq'r's' + pq'r's ) + (pqr's' + pqr's ) + (pq'r's'+  pqr's' )  + (pq'r's + pqr's)     // Adjacency or Uniting Theorem:
+c0 = p'rs+ (p'qrs' + p'qrs ) + (pq'r's' + pq'r's ) + (pqr's' + pqr's ) + (pq'r's'+  pqr's' )  + (pq'r's + pqr's)              // Adjacency or Uniting Theorem
+c0 = p'rs+  p'qr + pq'r' + (pqr's' + pqr's ) + (pq'r's'+  pqr's' )  + (pq'r's + pqr's)                               // Adjacency or Uniting Theorem
+c0 = p'rs+  p'qr + pq'r' + pqr' + (pq'r's'+  pqr's' )  + (pq'r's + pqr's)                               // Adjacency or Uniting Theorem
+c0 = p'rs+  p'qr + pq'r' + pqr' + pr's'  + (pq'r's + pqr's)                               // Adjacency or Uniting Theorem
 c0 = p'rs+  p'qr + pq'r' + pqr' + pr's'+ pr's
-c0 = p'rs+  p'qr + (pq'r' + pqr') + (pr's'+ pr's) // absorption
-c0 = p'rs+  p'qr + pr' + pr' // idempotent
+c0 = p'rs+  p'qr + (pq'r' + pqr') + (pr's'+ pr's)                 // Adjacency or Uniting Theorem:
+c0 = p'rs+  p'qr + pr' + (pr's'+ pr's)                  // Adjacency or Uniting Theorem:
+c0 = p'rs+  p'qr + pr' + pr'                  // idempotent
 c0 = p'rs+  p'qr + pr'
 
 
@@ -52,11 +64,11 @@ Used form: PoS
 
 Minimize c1
 c1 = (p + q + r + s)(p + q + r + s')(p + q + r' + s)(p' + q + r + s)(p' + q + r + s')(p' + q'+ r + s)(p' + q' + r + s') // idempotent
-c1 = (p + q + r + s)(p + q + r + s')(p + q + r' + s)(p' + q + r + s) // absorption
+c1 = (p + q + r + s)(p + q + r + s')(p + q + r' + s)(p' + q + r + s)    // Adjacency or Uniting Theorem:
 	 (p + q + r + s')(p' + q + r + s')
 	 (p' + q + r + s)(p' + q + r + s')(p' + q'+ r + s)
 	 (p' + q'+ r + s)(p' + q' + r + s')
-c1 = (p + q + r )(p + q  + s)( q + r + s)( q + r + s')(p' + q + r )(p'+ r + s)(p' + q' + r )	 // absorption
+c1 = (p + q + r )(p + q  + s)( q + r + s)( q + r + s')(p' + q + r )(p'+ r + s)(p' + q' + r )	 // Adjacency or Uniting Theorem:
 c1 = ( q + r )(p + q  + s)( q + r )(p'  + r )(p'+ r + s) // idempotent
 c1 = (p + q  + s)( q + r )(p' + r )(p'+ r + s)
 
