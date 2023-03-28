@@ -1,0 +1,63 @@
+Prelab
+
+int a = 0b00; // 2-bit unsigned integer
+int b = 0b00; // 2-bit unsigned integer
+int c = 0b00; // 2-bit unsigned integer
+
+if (a < 1) and (b < 3):
+	c = 0b00
+else if (a ^ b) < 2: // ^ means xor
+	c = 0b01
+else if a > b:
+	c = 0b10
+else:
+	c = 0b11
+
+
+Fill in the truth table. Change XX values to 00, 01, 10 or 11.
+
+a1a0b1b0 	c1c0
+0000 		00
+0001 		00
+0010 		00
+0011 		11
+0100 		01
+0101 		01
+0110 		11
+0111 		11
+1000 		10
+1001 		10
+1010 		01
+1011 		01
+1100 		10
+1101 		10
+1110 		01
+1111 		01
+
+You can use pqrs. Using a0a1b0b1 will be harder to read. Use p'q'r's' for prime forms.
+
+Used form: SoP
+
+Minimize c0
+c0 = p'q'rs + p'qrs' + p'qrs + pq'r's' + pq'r's +  pqr's' + pqr's   // idempotent 
+c0 = p'q'rs + p'qrs' + p'qrs + pq'r's' + pq'r's +  pqr's' + pqr's + p'qrs + pq'r's' + pqr's +  pqr's' + pq'r's   
+c0 = (p'q'rs + p'qrs) + (p'qrs' + p'qrs ) +  (pq'r's' + pq'r's ) + (pqr's' + pqr's ) + (pq'r's'+  pqr's' )  + (pq'r's + pqr's)     // absorption
+c0 = p'rs+  p'qr + pq'r' + pqr' + pr's'+ pr's
+c0 = p'rs+  p'qr + (pq'r' + pqr') + (pr's'+ pr's) // absorption
+c0 = p'rs+  p'qr + pr' + pr' // idempotent
+c0 = p'rs+  p'qr + pr'
+
+
+Used form: PoS 
+
+Minimize c1
+c1 = (p + q + r + s)(p + q + r + s')(p + q + r' + s)(p' + q + r + s)(p' + q + r + s')(p' + q'+ r + s)(p' + q' + r + s') // idempotent
+c1 = (p + q + r + s)(p + q + r + s')(p + q + r' + s)(p' + q + r + s) // absorption
+	 (p + q + r + s')(p' + q + r + s')
+	 (p' + q + r + s)(p' + q + r + s')(p' + q'+ r + s)
+	 (p' + q'+ r + s)(p' + q' + r + s')
+c1 = (p + q + r )(p + q  + s)( q + r + s)( q + r + s')(p' + q + r )(p'+ r + s)(p' + q' + r )	 // absorption
+c1 = ( q + r )(p + q  + s)( q + r )(p'  + r )(p'+ r + s) // idempotent
+c1 = (p + q  + s)( q + r )(p' + r )(p'+ r + s)
+
+
