@@ -69,29 +69,43 @@ c1 = p'rs+  p'qr + pr'
 Used form: PoS 
 
 Minimize c0
-c0 = (p + q + r + s)(p + q + r + s')(p + q + r' + s)(p' + q + r + s)(p' + q + r + s')(p' + q'+ r + s)(p' + q' + r + s') 																																					// idempotent
-co = (p + q + r + s)(p + q + r + s') [(p + q + r + s)] (p + q + r' + s)(p' + q + r + s)(p' + q + r + s')(p' + q'+ r + s)(p' + q' + r + s') 																																	// idempotent
-co = (p + q + r + s)(p + q + r + s') (p + q + r + s) (p + q + r' + s) [(p + q + r + s)] (p' + q + r + s)(p' + q + r + s')(p' + q'+ r + s)(p' + q' + r + s') 																												// idempotent
-co = (p + q + r + s)(p + q + r + s') (p + q + r + s) (p + q + r' + s) (p + q + r + s) (p' + q + r + s) [(p + q + r + s')] (p' + q + r + s')(p' + q'+ r + s)(p' + q' + r + s') 																								// idempotent
-co = (p + q + r + s)(p + q + r + s') (p + q + r + s) (p + q + r' + s) (p + q + r + s) (p' + q + r + s) (p + q + r + s') (p' + q + r + s') [(p' + q + r + s)] (p' + q'+ r + s)(p' + q' + r + s') 																			// idempotent
-co = (p + q + r + s)(p + q + r + s') (p + q + r + s) (p + q + r' + s) (p + q + r + s) (p' + q + r + s) (p + q + r + s') (p' + q + r + s') (p' + q + r + s) [(p' + q + r + s')] (p' + q'+ r + s)(p' + q' + r + s') 															// idempotent
-co = (p + q + r + s)(p + q + r + s') (p + q + r + s) (p + q + r' + s) (p + q + r + s) (p' + q + r + s) (p + q + r + s') (p' + q + r + s') (p' + q + r + s) (p' + q + r + s') [(p' + q + r + s)] (p' + q'+ r + s)(p' + q' + r + s') 											// idempotent
-co = (p + q + r + s)(p + q + r + s') (p + q + r + s) (p + q + r' + s) (p + q + r + s) (p' + q + r + s) (p + q + r + s') (p' + q + r + s') (p' + q + r + s) (p' + q + r + s') (p' + q + r + s) (p' + q'+ r + s) [(p' + q'+ r + s)] (p' + q' + r + s') 						// idempotent
-c0 = (p + q + r + s)(p + q + r + s') (p + q + r + s) (p + q + r' + s) (p + q + r + s) (p' + q + r + s) (p + q + r + s') (p' + q + r + s') (p' + q + r + s) (p' + q + r + s') (p' + q + r + s) (p' + q'+ r + s) (p' + q'+ r + s) (p' + q' + r + s')
-c0 = [(p + q + r + s)(p + q + r + s')] (p + q + r + s) (p + q + r' + s) (p + q + r + s) (p' + q + r + s) (p + q + r + s') (p' + q + r + s') (p' + q + r + s) (p' + q + r + s') (p' + q + r + s) (p' + q'+ r + s) (p' + q'+ r + s) (p' + q' + r + s')   						// Adjacency or Uniting Theorem
-c0 = (p + q + r ) [(p + q + r + s) (p + q + r' + s)] (p + q + r + s) (p' + q + r + s) (p + q + r + s') (p' + q + r + s') (p' + q + r + s) (p' + q + r + s') (p' + q + r + s) (p' + q'+ r + s) (p' + q'+ r + s) (p' + q' + r + s')    										// Adjacency or Uniting Theorem
-c0 = (p + q + r ) (p + q  + s) [(p + q + r + s) (p' + q + r + s)] (p + q + r + s') (p' + q + r + s') (p' + q + r + s) (p' + q + r + s') (p' + q + r + s) (p' + q'+ r + s) (p' + q'+ r + s) (p' + q' + r + s')    														 	// Adjacency or Uniting Theorem
-c0 = (p + q + r ) (p + q  + s) (q + r + s) [(p + q + r + s') (p' + q + r + s')] (p' + q + r + s) (p' + q + r + s') (p' + q + r + s) (p' + q'+ r + s) (p' + q'+ r + s) (p' + q' + r + s')     																				// Adjacency or Uniting Theorem
-c0 = (p + q + r ) (p + q  + s) (q + r + s) ( q + r + s') [(p' + q + r + s) (p' + q + r + s')] (p' + q + r + s) (p' + q'+ r + s) (p' + q'+ r + s) (p' + q' + r + s')     																									// Adjacency or Uniting Theorem
-c0 = (p + q + r ) (p + q  + s) (q + r + s) ( q + r + s') (p' + q + r ) [(p' + q + r + s) (p' + q'+ r + s)] (p' + q'+ r + s) (p' + q' + r + s')     																															// Adjacency or Uniting Theorem
-c0 = (p + q + r ) (p + q  + s) (q + r + s) ( q + r + s') (p' + q + r ) (p'+ r + s) [(p' + q'+ r + s) (p' + q' + r + s')]     																																				// Adjacency or Uniting Theorem
-c0 = (p + q + r ) (p + q  + s) (q + r + s) ( q + r + s') (p' + q + r ) (p'+ r + s) (p' + q' + r )    																																										// Associativity 
-c0 = (p + q + r ) (p' + q + r ) (p + q  + s) (q + r + s) ( q + r + s') (p'+ r + s) (p' + q' + r )	 																																										// idempotent
+c0 = (p + q + r + s)(p + q + r + s')(p + q + r' + s)(p' + q + r + s)(p' + q + r + s')(p' + q'+ r + s)(p' + q' + r + s') 							// idempotent
+co = (p + q + r + s)(p + q + r + s') [(p + q + r + s)] (p + q + r' + s)(p' + q + r + s)(p' + q + r + s')(p' + q'+ r + s)
+(p' + q' + r + s') 																																	// idempotent
+co = (p + q + r + s)(p + q + r + s') (p + q + r + s) (p + q + r' + s) [(p + q + r + s)] (p' + q + r + s)(p' + q + r + s')
+(p' + q'+ r + s)(p' + q' + r + s') 																													// idempotent
+co = (p + q + r + s)(p + q + r + s') (p + q + r + s) (p + q + r' + s) (p + q + r + s) (p' + q + r + s) [(p + q + r + s')]
+ (p' + q + r + s')(p' + q'+ r + s)(p' + q' + r + s') 																								// idempotent
+co = (p + q + r + s)(p + q + r + s') (p + q + r + s) (p + q + r' + s) (p + q + r + s) (p' + q + r + s) (p + q + r + s')
+ (p' + q + r + s') [(p' + q + r + s)] (p' + q'+ r + s)(p' + q' + r + s') 																			// idempotent
+co = (p + q + r + s)(p + q + r + s') (p + q + r + s) (p + q + r' + s) (p + q + r + s) (p' + q + r + s) (p + q + r + s') 
+(p' + q + r + s') (p' + q + r + s) [(p' + q + r + s')] (p' + q'+ r + s)(p' + q' + r + s') 															// idempotent
+co = (p + q + r + s)(p + q + r + s') (p + q + r + s) (p + q + r' + s) (p + q + r + s) (p' + q + r + s) (p + q + r + s') 
+(p' + q + r + s') (p' + q + r + s) (p' + q + r + s') [(p' + q + r + s)] (p' + q'+ r + s)(p' + q' + r + s') 											// idempotent
+co = (p + q + r + s)(p + q + r + s') (p + q + r + s) (p + q + r' + s) (p + q + r + s) (p' + q + r + s) (p + q + r + s') 
+(p' + q + r + s') (p' + q + r + s) (p' + q + r + s') (p' + q + r + s) (p' + q'+ r + s) [(p' + q'+ r + s)] (p' + q' + r + s') 						// idempotent
+c0 = (p + q + r + s)(p + q + r + s') (p + q + r + s) (p + q + r' + s) (p + q + r + s) (p' + q + r + s) (p + q + r + s')
+ (p' + q + r + s') (p' + q + r + s) (p' + q + r + s') (p' + q + r + s) (p' + q'+ r + s) (p' + q'+ r + s) (p' + q' + r + s')
+c0 = [(p + q + r + s)(p + q + r + s')] (p + q + r + s) (p + q + r' + s) (p + q + r + s) (p' + q + r + s) (p + q + r + s')
+ (p' + q + r + s') (p' + q + r + s) (p' + q + r + s') (p' + q + r + s) (p' + q'+ r + s) (p' + q'+ r + s) (p' + q' + r + s')   						// Adjacency or Uniting Theorem
+c0 = (p + q + r ) [(p + q + r + s) (p + q + r' + s)] (p + q + r + s) (p' + q + r + s) (p + q + r + s') (p' + q + r + s') 
+(p' + q + r + s) (p' + q + r + s') (p' + q + r + s) (p' + q'+ r + s) (p' + q'+ r + s) (p' + q' + r + s')    										// Adjacency or Uniting Theorem
+c0 = (p + q + r ) (p + q  + s) [(p + q + r + s) (p' + q + r + s)] (p + q + r + s') (p' + q + r + s') (p' + q + r + s) 
+(p' + q + r + s') (p' + q + r + s) (p' + q'+ r + s) (p' + q'+ r + s) (p' + q' + r + s')    														 	// Adjacency or Uniting Theorem
+c0 = (p + q + r ) (p + q  + s) (q + r + s) [(p + q + r + s') (p' + q + r + s')] (p' + q + r + s) (p' + q + r + s') 
+(p' + q + r + s) (p' + q'+ r + s) (p' + q'+ r + s) (p' + q' + r + s')     																			// Adjacency or Uniting Theorem
+c0 = (p + q + r ) (p + q  + s) (q + r + s) ( q + r + s') [(p' + q + r + s) (p' + q + r + s')] (p' + q + r + s)
+ (p' + q'+ r + s) (p' + q'+ r + s) (p' + q' + r + s')     																							// Adjacency or Uniting Theorem
+c0 = (p + q + r ) (p + q  + s) (q + r + s) ( q + r + s') (p' + q + r ) [(p' + q + r + s) (p' + q'+ r + s)] 
+(p' + q'+ r + s) (p' + q' + r + s')     																											// Adjacency or Uniting Theorem
+c0 = (p + q + r ) (p + q  + s) (q + r + s) ( q + r + s') (p' + q + r ) (p'+ r + s) [(p' + q'+ r + s) (p' + q' + r + s')]     						// Adjacency or Uniting Theorem
+c0 = (p + q + r ) (p + q  + s) (q + r + s) ( q + r + s') (p' + q + r ) (p'+ r + s) (p' + q' + r )    												// Associativity 
+c0 = (p + q + r ) (p' + q + r ) (p + q  + s) (q + r + s) ( q + r + s') (p'+ r + s) (p' + q' + r )	 												// idempotent
 c0 = (p + q + r ) (p' + q + r ) (p + q  + s) (q + r + s) ( q + r + s') (p'+ r + s) [(p' + q + r )] (p' + q' + r )	 
-c0 = [(p + q + r ) (p' + q + r )] (p + q  + s) (q + r + s) ( q + r + s') (p'+ r + s) (p' + q + r ) (p' + q' + r )	   																																						//Adjacency or Uniting Theorem
-c0 = ( q + r ) (p + q  + s) [(q + r + s) ( q + r + s')] (p'+ r + s) (p' + q + r ) (p' + q' + r )	   																																										//Adjacency or Uniting Theorem
-c0 = ( q + r ) (p + q  + s) ( q + r ) (p'+ r + s) [(p' + q + r ) (p' + q' + r )]	   																																														// Adjacency or Uniting Theorem
-c0 = ( q + r ) (p + q  + s) ( q + r ) (p'+ r + s) (p'  + r )	   																																																		    // Associativity
-c0 = ( q + r ) (p + q  + s) ( q + r ) (p'  + r ) (p'+ r + s)                                                                                                                                                                                                                // idempotent
+c0 = [(p + q + r ) (p' + q + r )] (p + q  + s) (q + r + s) ( q + r + s') (p'+ r + s) (p' + q + r ) (p' + q' + r )	   								// Adjacency or Uniting Theorem
+c0 = ( q + r ) (p + q  + s) [(q + r + s) ( q + r + s')] (p'+ r + s) (p' + q + r ) (p' + q' + r )	   												// Adjacency or Uniting Theorem
+c0 = ( q + r ) (p + q  + s) ( q + r ) (p'+ r + s) [(p' + q + r ) (p' + q' + r )]	   																// Adjacency or Uniting Theorem
+c0 = ( q + r ) (p + q  + s) ( q + r ) (p'+ r + s) (p'  + r )	   																					// Associativity
+c0 = ( q + r ) (p + q  + s) ( q + r ) (p'  + r ) (p'+ r + s)                                                                                        // idempotent
 c0 = ( q + r ) (p + q  + s) (p'  + r ) (p'+ r + s)
 
