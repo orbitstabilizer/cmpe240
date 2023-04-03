@@ -38,54 +38,58 @@ You can use pqrs. Using a0a1b0b1 will be harder to read. Use p'q'r's' for prime 
 
 Adjacency or Uniting Theorem:                                
 
-    product*Y + product*Y' = product
+  - product*Y + product*Y' = product
 Proof:                                         
     product*Y + product*Y'                                                   
-    = product(Y+Y')                    // Distibutivity                        
-    = product*1                        // Complement                           
-    = product                          // Identity                             
+                           = product(Y+Y')                  // Distibutivity
+                           = product*1                      // Complement
+                           = product                        // Identity
     
     
-    (sum + Y) * (sum + Y') = sum
+  - (sum + Y) * (sum + Y') = sum
 Proof:
     (sum + Y) * (sum + Y')
-    = (sum)*(Y+Y')                     // Distibutivity
-    = (sum)*(1)                        // Complement 
-    = sum                             // Identity
+                           = (sum)*(Y+Y')                   // Distibutivity
+                           = (sum)*(1)                      // Complement
+                           = sum                            // Identity
 
 
 Null Theorem:
-    product + 1 = product
+  - product + 1 = product
 Proof:
-    product + 1                      // Identity
-    = (1) * product + 1                // Complement
-    = (product + product') * (product + 1)  // Distibutivity
-    = product + (product' * 1)         // Identity
-    = product + product'               //Identity
-    = 1 
+    product + 1                                             // Identity
+                = (1) * product + 1                         // Complement
+                = (product + product') * (product + 1)      // Distibutivity
+                = product + (product' * 1)                  // Identity
+                = product + product'                        // Identity
+                = 1
 
-    product * 0 = 0 
+  - product * 0 = 0 
 Proof:
      Duality
 
 
 
 Absorption Law:
-    product * (product + Y) = product
-    product * (product + Y)          // Identity
-    (product + 0) * (product + Y)    // Distibutivity
-    product + (0 * Y)                // Null Theorem
-    product + 0                      // Identity
-    product 
+  - product * (product + Y) = product
+
+Proof:
+    product * (product + Y) =                               // Identity
+                            = (product + 0) * (product + Y) // Distibutivity
+                            = product + (0 * Y)             // Null Theorem
+                            = product + 0                   // Identity
+                            = product
 
 
 
-    product + product * Y = product
-    product + product * Y
-    product * 1 + product * Y        // Identity
-    product * (1 + Y)                // Distibutivity
-    product * 1                      // Null Theorem
-    product                          // Identity
+  - product + product * Y = product
+
+Proof:
+    product + product * Y =                                   // Identity      
+                          = product * 1 + product * Y         // Distibutivity
+                          = product * (1 + Y)                 // Null Theorem
+                          = product * 1                       // Identity
+                          = product                         
 
 
 
