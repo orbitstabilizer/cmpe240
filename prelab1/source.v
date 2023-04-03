@@ -27,18 +27,16 @@ and(pnr, a[1], nr);
 
 or(c[1], nprs, npqr, pnr);
 
-//c0 = (p + q  + s)( q + r )(p' + r )(p'+ r + s)
+//c0 = (p + q  + s)( q + r )(p' + r )
 wire _pqs;
 wire _qr;
 wire _npr;
-wire _nprs;
 
 or(_pqs, a[1], a[0], b[0]);
 or(_qr, a[0], b[1]);
 or(_npr, np, b[1]);
-or(_nprs, np, b[1], b[0]);
 
-and(c[0], _pqs, _qr, _npr, _nprs);
+and(c[0], _pqs, _qr, _npr);
 
 
 endmodule
