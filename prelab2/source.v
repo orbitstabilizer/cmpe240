@@ -20,18 +20,11 @@ input wire[1:0] s;
 input wire[2:0] y;
 output reg z;
 
-integer i;
 always @(y,s) begin
-
-    for (i = 0; i < 4; i++) begin
-      if (s == i) begin
-        if (y[0] + y[1] + y[2] == i)
-          z <= 1'b1;
-        else
-          z <= 1'b0;
-      end
-
-    end
+  if (y[0] + y[1] + y[2] == s)
+    z <= 1;
+  else
+    z <= 0;
 end
 
 endmodule
