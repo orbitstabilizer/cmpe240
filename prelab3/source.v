@@ -1,7 +1,7 @@
 `timescale 1ns / 1ns
 
 // Put the last sequence you have tried below.
-// parameter inputseq = 64'b0000000000000000000000000000000000000000000000000000000000000000;
+// parameter inputseq = 64'b001100110011001010011010110110101000100010111101101010110010011;
 
 module source(y, stateReg, nextStateReg, x, rst, clk);
 
