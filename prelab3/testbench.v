@@ -1,12 +1,12 @@
 `timescale 1ns/1ns
 module testbench();
-wire [0:0] y;
+wire  y;
 wire [2:0] cs;
 wire [2:0] ns;
 reg x;
 reg rst;
 reg clk;
-parameter inputseq = 64'b0011001100000000000000000000000000000000000000000000000000000000;
+parameter inputseq = 64'b001100110011001010011010110110101000100010111101101010110010011;
 integer i;
 
 source s(y, cs, ns, x, rst, clk);

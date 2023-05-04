@@ -1,109 +1,92 @@
 `timescale 1ns / 1ns
 
 // Put the last sequence you have tried below.
-// parameter inputseq = 64'b0000000000000000000000000000000000000000000000000000000000000000;
+// parameter inputseq = 64'b001100110011001010011010110110101000100010111101101010110010011;
 
 module source(y, stateReg, nextStateReg, x, rst, clk);
 
-//You are going to implement a Moore Machine to detect input sequences 001 and 110. The source module receives input x continuously. 
-//For each positive edge of the clock, the module reads the value of x, either 0 or 1. Whenever the last three read values are 001 or 110, 
-//the value of the output y becomes 1. For any other input sequences, the value of y becomes 0. You can implement the system with seven states. 
-//One of them is the initial state, three of them recognize 001, and the other three of them recognize 110. You need to draw proper arcs for the values of x.
+  input wire x, rst, clk;
+  output reg [2:0] nextStateReg, stateReg;
+  output reg y;
 
-//For example, input sequence 00110011 makes the value of y 00010101.
+  parameter START = 3'b000,
+            S1    = 3'b001,
+            S2    = 3'b010,
+            S3    = 3'b011,
+            T1    = 3'b101,
+            T2    = 3'b110,
+            T3    = 3'b111;
 
-input wire x;
-input wire rst;
-input wire clk;
+  always@(stateReg, x) begin
+    case(stateReg) 
+      START : begin 
+                y<= 0;
+                if (x == 0) 
+                  nextStateReg <= S1;
+                else
+                  nextStateReg <= T1;
+              end
 
-parameter S0 = 3'b000, S1 = 3'b001, S2 = 3'b010, S3 = 3'b011, S4 = 3'b100, S5 = 3'b101, S6 = 3'b110;
-// S0 initial state
-// S1 has read 0
-// S2 has read 00
-// S3 has read 001
-// S4 has read 1
-// S5 has read 11
-// S6 has read 110
+      S1    : begin 
+                y<= 0;
+                if (x == 0) 
+                  nextStateReg <= S2;
+                else
+                  nextStateReg <= T1;
+              end
 
-output reg y;
-output reg[2:0] stateReg;
-output reg[2:0] nextStateReg;
+      S2    : begin 
+                y<= 0;
+                if (x == 1) 
+                  nextStateReg <= S3;
+                else
+                  nextStateReg <= S2;
+             
+              end
 
+      S3    : begin 
+                y<= 1;
+                if (x == 1) 
+                  nextStateReg <= T2;
+                else
+                  nextStateReg <= S1;
+              end
 
-always @(stateReg, x) begin
-    case (stateReg)
-        S0: begin // initial state
-            y <= 1'b0;
-            if (x) begin
-                nextStateReg <= S4;
-            end 
-            else begin
-                nextStateReg <= S1;
-            end
-        end
-        S1: begin
-            y <= 1'b0;
-            if (x) begin
-                nextStateReg <= S4;
-            end 
-            else begin
-                nextStateReg <= S2;
-            end
-        end
-        S2: begin
-            y <= 1'b0;
-            if (x) begin
-                nextStateReg <= S3;
-            end 
-            else begin
-                nextStateReg <= S2;
-            end
-        end
-        S3: begin
-            y <= 1'b1;
-            if (x) begin
-                nextStateReg <= S5;
-            end 
-            else begin
-                nextStateReg <= S1;
-            end
-        end
-        S4: begin
-            y <= 1'b0;
-            if (x) begin
-                nextStateReg <= S5;
-            end else begin
-                nextStateReg <= S1;
-            end
-        end
-        S5: begin
-            y <= 1'b0;
-            if (x) begin
-                nextStateReg <= S5;
-            end else begin
-                nextStateReg <= S6;
-            end
-        end
-        S6: begin
-            y <= 1'b1;
-            if (x) begin
-                nextStateReg <= S4;
-            end 
-            else begin
-                nextStateReg <= S2;
-            end
-        end
+      T1    : begin 
+                y<= 0;
+                if (x == 1) 
+                  nextStateReg <= T2;
+                else
+                  nextStateReg <= S1;
+             end
+
+      T2    : begin 
+                y<= 0;
+                if (x == 0) 
+                  nextStateReg <= T3;
+                else
+                  nextStateReg <= T2;
+              end
+
+      T3    : begin 
+                y<= 1;
+                if (x == 0) 
+                  nextStateReg <= S2;
+                else
+                  nextStateReg <= T1;
+              end
+
     endcase
-end
 
-always@(posedge clk) begin
-	if(rst) begin
-		stateReg <= S0;
-	end
-	else begin
-		stateReg <= nextStateReg;
-	end
-end
+  end
+
+  always@(posedge clk)begin
+    if(rst) 
+		  stateReg <= START;
+    else 
+      stateReg <= nextStateReg;
+  end
+  
+
 
 endmodule
-
