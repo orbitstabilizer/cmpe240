@@ -1,0 +1,56 @@
+$date
+	Thu May  4 17:59:58 2023
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module testbench $end
+$var wire 128 ! memory [127:0] $end
+$upscope $end
+$scope module testbench $end
+$var reg 16 " instruction [15:0] $end
+$upscope $end
+$scope module testbench $end
+$var wire 8 # r1 [7:0] $end
+$upscope $end
+$scope module testbench $end
+$var wire 8 $ r2 [7:0] $end
+$upscope $end
+$scope module testbench $end
+$var wire 8 % r3 [7:0] $end
+$upscope $end
+$scope module testbench $end
+$var reg 1 & clk $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1&
+b0 %
+b0 $
+b0 #
+b100000 "
+b10 !
+$end
+#10
+0&
+#20
+b1100000010 !
+b10 #
+1&
+b110001 "
+#30
+0&
+#40
+b1100000001100000010 !
+b110 %
+b11 $
+1&
+b1101000000010010 "
+#50
+0&
+#60
+1&

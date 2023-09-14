@@ -1,0 +1,61 @@
+#! /usr/local/Cellar/icarus-verilog/11.0/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/system.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
+S_0x7f84b6f04700 .scope module, "testbench" "testbench" 2 2;
+ .timescale -9 -9;
+v0x6000012e05a0_0 .net "ss", 1 0, L_0x6000011e4500;  1 drivers
+v0x6000012e0630_0 .var "xx", 1 0;
+S_0x7f84b6f05540 .scope module, "variable_name" "source" 2 7, 3 2 0, S_0x7f84b6f04700;
+ .timescale -9 -9;
+    .port_info 0 /OUTPUT 2 "s";
+    .port_info 1 /INPUT 2 "x";
+L_0x600000be44d0 .functor AND 1, L_0x6000011e4280, L_0x6000011e4320, C4<1>, C4<1>;
+L_0x600000be4540 .functor XNOR 1, L_0x6000011e43c0, L_0x6000011e4460, C4<0>, C4<0>;
+L_0x600000be45b0 .functor OR 1, L_0x600000be44d0, L_0x600000be4540, C4<0>, C4<0>;
+L_0x600000be4620 .functor NAND 1, L_0x600000be44d0, L_0x600000be4540, C4<1>, C4<1>;
+v0x6000012e0000_0 .net *"_ivl_11", 0 0, L_0x600000be45b0;  1 drivers
+v0x6000012e0090_0 .net *"_ivl_14", 0 0, L_0x600000be4620;  1 drivers
+v0x6000012e0120_0 .net *"_ivl_2", 0 0, L_0x6000011e4280;  1 drivers
+v0x6000012e01b0_0 .net *"_ivl_4", 0 0, L_0x6000011e4320;  1 drivers
+v0x6000012e0240_0 .net *"_ivl_7", 0 0, L_0x6000011e43c0;  1 drivers
+v0x6000012e02d0_0 .net *"_ivl_9", 0 0, L_0x6000011e4460;  1 drivers
+v0x6000012e0360_0 .net "s", 1 0, L_0x6000011e4500;  alias, 1 drivers
+v0x6000012e03f0_0 .net "x", 1 0, v0x6000012e0630_0;  1 drivers
+v0x6000012e0480_0 .net "x1x2_and", 0 0, L_0x600000be44d0;  1 drivers
+v0x6000012e0510_0 .net "x1x2_xnor", 0 0, L_0x600000be4540;  1 drivers
+L_0x6000011e4280 .part v0x6000012e0630_0, 0, 1;
+L_0x6000011e4320 .part v0x6000012e0630_0, 1, 1;
+L_0x6000011e43c0 .part v0x6000012e0630_0, 0, 1;
+L_0x6000011e4460 .part v0x6000012e0630_0, 1, 1;
+L_0x6000011e4500 .concat8 [ 1 1 0 0], L_0x600000be45b0, L_0x600000be4620;
+    .scope S_0x7f84b6f04700;
+T_0 ;
+    %vpi_call 2 10 "$dumpfile", "TimingDiagram.vcd" {0 0 0};
+    %vpi_call 2 11 "$dumpvars", 32'sb00000000000000000000000000000000, v0x6000012e05a0_0, v0x6000012e0630_0 {0 0 0};
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v0x6000012e0630_0, 0, 2;
+    %delay 20, 0;
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v0x6000012e0630_0, 0, 2;
+    %delay 20, 0;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v0x6000012e0630_0, 0, 2;
+    %delay 20, 0;
+    %pushi/vec4 3, 0, 2;
+    %store/vec4 v0x6000012e0630_0, 0, 2;
+    %delay 20, 0;
+    %vpi_call 2 22 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testbench.v";
+    "source.v";
